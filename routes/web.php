@@ -22,4 +22,18 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
         $router->put('frameworks/{id}', ['uses' => 'FrameworkController@update']);
     });
+
+    $router->get('tools',  ['uses' => 'ToolController@index']);
+
+    $router->group(['middleware' => 'auth'], function () use ($router) {
+
+        $router->put('tools/{id}', ['uses' => 'ToolController@update']);
+    });
+
+    $router->get('languages',  ['uses' => 'LanguageController@index']);
+
+    $router->group(['middleware' => 'auth'], function () use ($router) {
+
+        $router->put('languages/{id}', ['uses' => 'LanguageController@update']);
+    });
 });

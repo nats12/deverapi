@@ -16,7 +16,10 @@ class CreateFrameworksTable extends Migration
         Schema::create('frameworks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('displayName');
             $table->string('version');
+            $table->string('semVerDefinition');
+            $table->text('versionDescription');
             $table->timestamps();
         });
     }

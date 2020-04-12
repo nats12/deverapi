@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Framework;
+use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\DateTime;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
-class FrameworkController extends BaseController
+class LanguageController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class FrameworkController extends BaseController
      */
     public function index()
     {
-        return Framework::all();
+        return Language::all();
     }
 
 
@@ -35,10 +35,9 @@ class FrameworkController extends BaseController
             'displayName' => 'required',
             'semVerDefinition' => 'required',
             'versionDescription' => 'required'
-
         ]);
 
-        $framework = Framework::where('name', '=', $request->name)->first();
+        $framework = Language::where('name', '=', $request->name)->first();
 
         $framework->update($request->all());
 
