@@ -20,6 +20,6 @@ class Framework extends Model implements AuthenticatableContract, AuthorizableCo
      * @var array
      */
     protected $fillable = [
-        'version', 'semVerDefinition', 'versionDescription'
+        'displayName', 'version', 'semVerDefinition', 'versionDescription'
     ];
 }

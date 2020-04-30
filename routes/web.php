@@ -15,25 +15,23 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'api'], function () use ($router) {
+$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
+
+    // FRAMEWORKS
     $router->get('frameworks',  ['uses' => 'FrameworkController@index']);
 
-    $router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->put('frameworks/{id}', ['uses' => 'FrameworkController@update']);
 
-        $router->put('frameworks/{id}', ['uses' => 'FrameworkController@update']);
-    });
 
+    // TOOLS
     $router->get('tools',  ['uses' => 'ToolController@index']);
 
-    $router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->put('tools/{id}', ['uses' => 'ToolController@update']);
 
-        $router->put('tools/{id}', ['uses' => 'ToolController@update']);
-    });
 
+    // LANGUAGES
     $router->get('languages',  ['uses' => 'LanguageController@index']);
 
-    $router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->put('languages/{id}', ['uses' => 'LanguageController@update']);
 
-        $router->put('languages/{id}', ['uses' => 'LanguageController@update']);
-    });
 });
