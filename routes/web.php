@@ -15,7 +15,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
+$router->group(['prefix' => 'api', /*'middleware' => 'auth'*/], function () use ($router) {
 
     // FRAMEWORKS
     $router->get('frameworks',  ['uses' => 'FrameworkController@index']);
