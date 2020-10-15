@@ -80,7 +80,6 @@ $app->routeMiddleware([
 
 $app->middleware([
     App\Http\Middleware\CorsMiddleware::class,
-    'cors' => Fruitcake\Cors\CorsServiceProvider::class
 ]);
 
 $app->register(Fruitcake\Cors\CorsServiceProvider::class);
